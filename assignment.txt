@@ -1,0 +1,297 @@
+Node JS Assignments
+Module – 1: Node - JavaScript Fundamental
+
+Q1 : What is the difference between Java & JavaScript?
+
+JavaScript is a lightweight programming language(“scripting language”) and is used to make web pages interactive. It can insert dynamic text into HTML. JavaScript is also known as the browser’s language. JavaScript(JS) is not similar or related to Java. 
+
+-JavaScript was created in the first place for DOM manipulation. Earlier websites were mostly static, after JS was created dynamic Web sites were made.
+
+Java is an object-oriented programming language and has a virtual machine platform that allows you to create compiled programs that run on nearly every platform. Java promised, “Write Once, Run Anywhere”
+
+Java is an object-oriented programming language
+JavaScript is an object-based scripting language.
+
+Java applications can run in any virtual machine(JVM) or browser.
+JavaScript code used to run only in the browser, but now it can run on the server via Node.js.
+
+Java is a Standalone language.	
+contained within a web page and integrates with its HTML content.
+
+Java supports multithreading.	
+Javascript doesn’t support multi-threading.
+
+Java is mainly used for backend	
+Javascript is used for the frontend and backend both.
+
+Java uses more memory	
+Javascript uses less memory.
+
+Java requires a Java Development Kit(JDK) to run the code	
+Javascript requires any text editor or browser console to run the code
+
+Q2. What is JavaScript?
+
+JavaScript is a lightweight programming language(“scripting language”) and is used to make web pages interactive. It can insert dynamic text into HTML. JavaScript is also known as the browser’s language. 
+
+Features of Javascript are as follows: 
+
+JavaScript was created in the first place for DOM manipulation. Earlier websites were mostly static, after JS was created dynamic Web sites were made. now it also used for backend language by the help of nodejs.
+
+No compiler is needed.
+
+
+Q3. What are the data types supported by JavaScript?
+
+JavaScript provides different data types to hold different types of values. There are two types of data types in JavaScript.
+
+1.Primitive data type
+2.Non-primitive (reference) data type
+
+primitive data types in JavaScript. They are as follows:
+
+String- represents sequence of characters e.g. "hello"
+Number- represents numeric values e.g. 100
+Boolean- represents boolean value either false or true
+Undefined - represents undefined value
+Null - represents null i.e. no value at all
+
+
+The non-primitive data types are as follows:
+
+Object - represents instance through which we can access members
+Array - represents group of similar values
+
+Q4. What are the scopes of a variable in JavaScript?
+
+ The scope manages the availability of variables or we can also say that it determines the accessibility of variables.
+
+ Types of Scopes in JavaScript: 
+
+    Block scope    
+    Function scope 
+    Local scope  
+    Global scope
+
+
+
+    Block scope    - Variables that are declared inside a { } block cannot be accessed from outside the block.
+
+    Function scope - JavaScript has function scope and each function creates a new scope. Variables defined inside a function are not accessible from outside the function.
+
+    Local scope    - Variables declared inside a function become local to the function. Local variables are     created when a function starts and deleted when the function is executed.
+
+    Global scope   - Variables declared Globally (outside of any function) have Global Scope and Global variables can be accessed from anywhere in a program.
+
+Q5. What is Callback?
+
+    A JavaScript callback is a function which is to be executed after another function has finished execution.
+
+    A more formal definition would be - Any function that is passed as an argument to another function so that it can be executed in that other function is called as a callback function.
+
+    ex:write file
+    fs.writeFile(file,data,(err)=>{
+        if(!err){
+            console.log('Added success'.green);
+        }else{
+             console.log('fail to write'.red);} 
+        })
+
+Q6. What is Closure? Give an example.
+
+Closure means that an inner function always has access to the vars and parameters of its outer function, even after the outer function has returned.
+
+
+Ex-
+
+function OuterFunction(msg) {
+
+    var outerVariable = 'Mihir';
+
+    function InnerFunction() {
+       console.log(msg);
+       console.log(outerVariable);
+    }
+
+    InnerFunction();
+}
+
+OuterFunction('hello')
+
+
+Q7. What is the difference between the operators ‘==‘ & ‘===‘?
+
+== is used for comparison between two variables irrespective of the datatype of variable.
+=== is used for comparision between two variables but this will check strict type, which means it will check datatype and compare two values.
+
+
+Q8. What is the difference between null & undefined?
+
+undefined means a variable has been declared but has not yet been assigned a value :
+
+    var testVar;
+    alert(testVar); //shows undefined
+    alert(typeof testVar); //shows undefined
+
+null is an assignment value. It can be assigned it. 
+
+    var testVar = null;
+    alert(testVar); //shows null
+    alert(typeof testVar); //shows object
+
+Q9. What would be the result of 2+5+”3″?
+73
+
+Q10. What is the difference between Call & Apply?
+
+    -call() Method: It calls the method, taking the owner object as argument.
+     The keyword this refers to the ‘owner’ of the function or the object it belongs to. We can call a method which can be used on different objects. 
+
+    Syntax:
+
+    object.objectMethod.call( objectInstance, arguments )
+
+    -apply() Method: The apply() method is used to write methods, which can be used on different objects. It is different from the function call() because it takes arguments as an array. 
+
+    Syntax:
+
+    object.objectMethod.apply(objectInstance, arrayOfArguments)
+
+
+
+    -Difference between call() and apply() method: The only difference is call() method takes the arguments separated by comma while apply() method takes the array of arguments. 
+
+    //call 
+
+        let p = {
+        
+            fullName: function(addr1, addr2) {
+                console.log(this.fName + " " + this.lName + ", " + addr1 + ", " + addr2);
+            }
+        }
+            
+        let p1 = {
+            fName:"GFGfName",
+            lName: "GFGlName",
+        }
+            
+        let x = p.fullName.call(p1, "India", "USA");
+
+
+
+
+    //apply
+
+    let p = {
+	fullName: function(addr1, addr2) {
+		 console.log(this.fName + " " + this.lName + ", " + addr1 + ", " + addr2);
+		}
+	}
+
+	let p1 = {
+		fName:"GFGfName",
+		lName: "GFGlName",
+	}
+	let x = p.fullName.apply(p1, ["India", "USA"]);
+
+
+
+
+Module - 2: Node - NodeJS – Introduction
+
+
+Q1. What is Node.js? Where can you use it?
+
+    Node.js is an open source server environment
+    Node.js is free
+    Node.js runs on various platforms (Windows, Linux, Unix, Mac OS X, etc.)
+    Node.js uses JavaScript on the server
+
+    # Why Node.js?
+
+    -Node.js uses asynchronous programming!
+
+        A common task for a web server can be to open a file on the server and return the content to the client.
+
+        Here is how PHP or ASP handles a file request:
+
+        Sends the task to the computer's file system.
+        Waits while the file system opens and reads the file.
+        Returns the content to the client.
+        Ready to handle the next request.
+        Here is how Node.js handles a file request:
+
+        Sends the task to the computer's file system.
+        Ready to handle the next request.
+        When the file system has opened and read the file, the server returns the content to the client.
+        Node.js eliminates the waiting, and simply continues with the next request.
+
+    -Node.js runs single-threaded, non-blocking, asynchronous programming, which is very memory efficient.
+
+    # What Can Node.js Do?
+
+    Node.js can generate dynamic page content
+    Node.js can create, open, read, write, delete, and close files on the server
+    Node.js can collect form data
+    Node.js can add, delete, modify data in your database
+
+    # Where can you use NodeJS?
+    - Browser Games
+    -Real-time Applications
+    -Streaming
+    -Fast and scalable Applications
+
+Q2. Explain callback in Node.js.
+
+    A callback is a function which is called when a task is completed, thus helps in preventing any kind of blocking
+    callback function allows other code to run in the meantime.
+    Callback is called when task get completed and is asynchronous equivalent for a function.
+    Using Callback concept, Node.js can process a large number of requests without waiting for any function to return the result which makes Node.js highly scalable.
+
+    For example: callback function will get called to avoid blocking or wait for File I/O.
+
+    Ex: reading file with asynchronous
+
+
+Q3. What are the advantages of using promises instead of callbacks?
+
+-Promises are used to handle asynchronous operations in JavaScript. They are easy to manage when dealing with multiple asynchronous operations where callbacks can create callback hell leading to unmanageable code. 
+
+-Multiple callback functions would create callback hell that leads to unmanageable code. Also it is not easy for any user to handle multiple callbacks at the same time.
+
+-Promises are the ideal choice for handling asynchronous operations in the simplest manner. They can handle multiple asynchronous operations easily and provide better error handling than callbacks and events
+
+-promises also handling multiple callbacks at the same time, thus avoiding the undesired callback hell situation. 
+
+-Promises do provide a better chance to a user to read the code in a more effective and efficient manner especially it that particular code is used for implementing multiple asynchronous operations. 
+
+# Benefits of Promises 
+    Improves Code Readability
+    Better handling of asynchronous operations
+    Better flow of control definition in asynchronous logic
+    Better Error Handling
+
+
+Q4. What is NPM?
+-NPM (Node Package Manager) is the default package manager for Node.js and is written entirely in Javascript.
+-NPM manages all the packages and modules for Node.js.
+-It gets installed into the system with installation of Node.js
+-The required packages and modules in Node project are installed using NPM.
+-ex: -lodash, async, react, request, express
+
+
+Q5. What are the modules in Node.js? Explain
+
+- In Node.js, Modules are the blocks of encapsulated code that communicates with an external application on the basis of their related functionality. Modules can be a single file or a collection of multiples files/folders. The reason programmers are heavily reliant on modules is because of their re-usability as well as the ability to break down a complex piece of code into manageable chunks.
+
+    1.Core Modules : built-in modules that are part of the platform and comes with Node.js installation. These modules can be loaded into the program by using the require function.
+    -Ex http,fs,os,url etc. etc
+
+    2. Local Modules(creadted by us): Unlike built-in and external modules, local modules are created locally in your Node.js application.
+
+    3.Third-party modules: Third-party modules are modules that are available online using the Node Package Manager(NPM). 
+    These modules can be installed in the project folder or globally.
+    Ex: mongoose, express, angular, and react. etc etc
+
+
+
