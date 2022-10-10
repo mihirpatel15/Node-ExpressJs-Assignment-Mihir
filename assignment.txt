@@ -294,4 +294,38 @@ Q5. What are the modules in Node.js? Explain
     Ex: mongoose, express, angular, and react. etc etc
 
 
+Q6. Create TODO app using FS module with yargs (command line arguments)
+    see in :practicalQuestion / commandline
 
+
+Module – 3: Node - Web Development with Node
+
+
+Q1. What is Express.js
+
+    -Express.js is a small framework that works on top of Node.js web server functionality to simplify its APIs and add helpful new features. 
+    -It makes it easier to organize your application’s functionality with middleware and routing. 
+    -It adds helpful utilities to Node.js HTTP objects and facilitates the rendering of dynamic HTTP objects.
+
+    # Why Express ?
+
+    -Develops Node.js web applications quickly and easily.
+    -It’s simple to set up and personalise.
+    -Allows you to define application routes using HTTP methods and URLs.
+    -Includes a number of middleware modules that can be used to execute additional requests and responses activities.
+    -Simple to interface with a variety of template engines, including Jade, Vash, and EJS.
+    -Allows you to specify a middleware for handling errors.
+
+
+Q2 .Create localhost server using express.
+    -see in :practicalQuestion/ localhostServer
+
+Q3 . Create basic “Hello world” app using node and express.
+    -see in :practicalQuestion / helloworld_app
+    
+Q4. Create weather app.
+i. Use Hbs.
+ii. Get country, state, city using api
+iii. Get weather data by city
+
+    -
