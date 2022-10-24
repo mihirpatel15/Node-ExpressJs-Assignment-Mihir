@@ -14,22 +14,29 @@
     <div class="container py-5 h-100">
 
       <div class="row d-flex justify-content-center">
-    
-        <div class="col-md-8 col-lg-6 col-xl-4 ">
-          <label for="exampleFormControlInput1" class="form-label">City Name</label>
-            {{!-- <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ex: Mumbai" id="cityName"> --}}
-            <input type="text" id="cityName">
 
-          <div class="card mt-5" style="color: #4B515D; border-radius: 35px;">
+        <div class="col-md-8 col-lg-6 col-xl-4 ">
+
+          <select class="form-select" aria-label="Default select example" id='listcountry'
+            onchange="getCity(this.value)">
+            <option value="">loading..</option>
+          </select>
+          <select class="form-select mt-2" aria-label="Default select example" id='listcity'  onchange=getweather(this.value)>
+          </select>
+
+
+
+
+          <div class="card mt-2" style="color: #4B515D; border-radius: 35px;">
             <div class="card-body p-4">
 
               <div class="d-flex">
-                <h6 class="flex-grow-1" id="city">Warsaw</h6>
+                <h6 class="flex-grow-1" id="city"></h6>
                 <h6></h6>
               </div>
 
               <div class="d-flex flex-column text-center mt-5 mb-4">
-                <h6 class="display-4 mb-0 font-weight-bold" style="color: #1C2331;" id="temp"> 13°C </h6>
+                <h6 class="display-4 mb-0 font-weight-bold" style="color: #1C2331;" id="temp"></h6>
                 <span class="small" style="color: #868B94"></span>
               </div>
 
@@ -43,8 +50,7 @@
                   </div>
                 </div>
                 <div>
-                  <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-weather/ilu1.webp"
-                    width="100px">
+                  
                 </div>
               </div>
 
@@ -60,4 +66,80 @@
 
 </html>
 
-<script src="js/my.js" type="text/javascript"></script>
+<script>
+
+
+  async function getCountries() {
+
+    await fetch(`/getCountries`)
+      .then((res) => res.json())
+      .then((result) => {
+
+        const element = document.getElementById('listcountry');
+        element.replaceChildren();//clear 
+        element.insertAdjacentHTML('afterbegin', '<option class="text-light">Country</option>');
+        for (const key in result) {
+
+          let newElement = `<option value='${result[key].name}' > ${result[key].name}</option>`;
+          element.insertAdjacentHTML('afterbegin', newElement);
+
+        }
+
+      })
+      .catch((err) => console.log('error found'))
+  }; getCountries()
+
+
+
+
+  async function getCity(country) {
+
+    await fetch(`/searchCity?country=${country}`, {
+      method: 'POST'
+    })
+      .then((res) => res.json())
+      .then((result) => {
+
+        
+        let newElement ="" ;
+        for (const key in result) {
+          
+          newElement  =  newElement + "<option value="+result[key].latitude+","+result[key].longitude+">"+result[key].name+"</option>";
+        }//,${result[key].latitude},${result[key].longitude}
+
+        const element = document.getElementById('listcity');
+        element.replaceChildren();//clear 
+        element.insertAdjacentHTML('afterbegin',newElement);
+
+      }).catch((err)=>console.log(err))
+
+  }
+
+
+    async function getweather(citylatlong) {
+
+    await fetch(`/getWeather?citylatlong=${citylatlong}`, {
+      method: 'POST'
+    })
+      .then((res) => res.json())
+      .then((result) => {
+
+        const temp=result.main.temp;
+        const pressure=result.main.pressure;
+        const cityName= result.name
+
+        document.getElementById("city").innerHTML = cityName;
+
+        document.getElementById('temp').innerHTML=temp
+       
+       
+       
+
+      }).catch((err)=>console.log(err))
+
+  }
+
+
+
+
+</script>
