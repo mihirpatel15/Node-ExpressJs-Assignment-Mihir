@@ -1,11 +1,15 @@
-const { createSecretKey } = require('crypto');
+
 const express = require('express');
-const hbd = require('hbs')
+const hbs = require('hbs')
 const path = require('path');
-const { send } = require('process');
 const url = require('url');
-const { isTypedArray } = require('util/types');
 const app = express();
+
+//const { send } = require('process');
+//const { createSecretKey } = require('crypto');
+//const { isTypedArray } = require('util/types');
+
+
 const {searchCountry,getCountries,searchCity,getWeather} = require('./myModule');
 
 

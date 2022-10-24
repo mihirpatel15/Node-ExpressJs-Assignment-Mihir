@@ -321,11 +321,11 @@ Q2 .Create localhost server using express.
     -see in :practicalQuestion/ localhostServer
 
 Q3 . Create basic “Hello world” app using node and express.
-    -see in :practicalQuestion / helloworld_app
+    done -see in :practicalQuestion / helloworld_app
     
 Q4. Create weather app.
-i. Use Hbs.
-ii. Get country, state, city using api
-iii. Get weather data by city
+    done -see in :practicalQuestion folder
 
-    -
+Q5. Create world clock app.
+
+    
