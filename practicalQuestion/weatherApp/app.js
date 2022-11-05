@@ -5,9 +5,6 @@ const path = require('path');
 const url = require('url');
 const app = express();
 
-//const { send } = require('process');
-//const { createSecretKey } = require('crypto');
-//const { isTypedArray } = require('util/types');
 
 
 const {searchCountry,getCountries,searchCity,getWeather} = require('./myModule');
@@ -47,7 +44,7 @@ app.get('/searchCountry', async function (req, res, next) {
 app.post('/searchCity',async function (req, res, next) {
 	const country =  req.query.country
 	city= await searchCity(country);
-	res.send(city)
+	res.json(city)
 
 	
 
@@ -70,8 +67,8 @@ app.get('/test', function (req, res, next) {
 
 })
 
-app.listen(5050, function () {
-	console.log('server is running on 5050 port');
+app.listen(5040, function () {
+	console.log('server is running on 5040 port');
 })
 
 
