@@ -81,46 +81,6 @@ app.post('/getTimeByzoneName', async function (req, res, next) {
 
 app.post('/test', async function (req, res, next) {
 
-	const { Country, State, City } = require('country-state-city');
-
-
-
-
-		res.json(await Country.getAllCountries())
-	
-
-	//undefine
-	//null
-
-	// console.log(a);//undefined
-	// console.log(b);//null
-	// console.log(c);//undefined
-
-	// let r = (typeof a !== 'undefined')?'defined':'undefined'
-	// console.log(r);//undefined
-
-
-
-
-	// function checkVariable(variable) {
-
-	// 	if (variable == null) {
-	// 		console.log('The variable is undefined or null');
-	// 	}
-	// 	else {
-	// 		console.log('The variable is neither undefined nor null');
-	// 	}
-	// }
-
-	// checkVariable(c)
-
-	let age;
-	// if(typeof age!=='undefined' || age !== null ){
-	// 	console.log('undefined');
-	// }else{
-	// 	console.log('define');
-	// }
-
 })
 
 
